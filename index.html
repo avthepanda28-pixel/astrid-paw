@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Astrid 🐾 | The Happiest Dog</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap');
+
+:root{
+    --cream:#fff8ed;
+    --peach:#ffb77e;
+    --orange:#ff8c42;
+    --pink:#ff8fb1;
+    --yellow:#ffd86b;
+    --green:#8ed6a7;
+    --blue:#8ed8ef;
+    --brown:#513a32;
+    --white:#ffffff;
+    --shadow:0 20px 50px rgba(81,58,50,.12);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Fredoka",sans-serif;
+    background:
+        radial-gradient(circle at 10% 10%,rgba(255,216,107,.22),transparent 25%),
+        radial-gradient(circle at 90% 20%,rgba(255,143,177,.20),transparent 25%),
+        radial-gradient(circle at 20% 80%,rgba(142,216,239,.18),transparent 25%),
+        var(--cream);
+    color:var(--brown);
+    overflow-x:hidden;
+}
+
+/* FLOATING PAWS */
+
+.paw{
+    position:fixed;
+    z-index:-1;
+    opacity:.08;
+    font-size:55px;
+    animation:floatPaw 12s linear infinite;
+}
+
+.p1{left:5%;top:20%}
+.p2{left:85%;top:10%;animation-delay:2s}
+.p3{left:15%;top:70%;animation-delay:4s}
+.p4{left:75%;top:75%;animation-delay:6s}
+.p5{left:48%;top:35%;animation-delay:8s}
+
+@keyframes floatPaw{
+    0%,100%{
+        transform:translateY(0) rotate(0deg);
+    }
+    50%{
+        transform:translateY(-30px) rotate(15deg);
+    }
+}
+
+/* NAV */
+
+nav{
+    position:fixed;
+    top:18px;
+    left:50%;
+    transform:translateX(-50%);
+    width:min(1100px,92%);
+    padding:13px 18px;
+    background:rgba(255,255,255,.78);
+    backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,.9);
+    border-radius:30px;
+    box-shadow:0 15px 40px rgba(81,58,50,.10);
+    z-index:1000;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    font-weight:800;
+    font-size:22px;
+}
+
+.logo span{
+    display:flex;
+    width:40px;
+    height:40px;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,var(--orange),var(--pink));
+    border-radius:50%;
+    font-size:23px;
+}
+
+nav ul{
+    display:flex;
+    gap:7px;
+    list-style:none;
+}
+
+nav a{
+    text-decoration:none;
+    color:var(--brown);
+    font-weight:600;
+    padding:9px 14px;
+    border-radius:20px;
+    transition:.25s;
+}
+
+nav a:hover{
+    background:#fff0e5;
+    color:var(--orange);
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:120px 7% 70px;
+}
+
+.hero-inner{
+    width:min(1200px,100%);
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:70px;
+    align-items:center;
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:9px 17px;
+    background:white;
+    border-radius:30px;
+    box-shadow:var(--shadow);
+    font-size:14px;
+    font-weight:700;
+    color:var(--orange);
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:clamp(60px,8vw,105px);
+    line-height:.85;
+    letter-spacing:-5px;
+    margin-bottom:28px;
+}
+
+.hero h1 span{
+    color:var(--orange);
+}
+
+.hero p{
+    max-width:600px;
+    font-size:19px;
+    line-height:1.7;
+    color:#765f56;
+    margin-bottom:30px;
+}
+
+.buttons{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    border:none;
+    padding:15px 23px;
+    border-radius:18px;
+    font-family:inherit;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+    text-decoration:none;
+    transition:.25s;
+}
+
+.btn-primary{
+    color:white;
+    background:linear-gradient(135deg,var(--orange),#ff7043);
+    box-shadow:0 12px 25px rgba(255,140,66,.28);
+}
+
+.btn-secondary{
+    background:white;
+    color:var(--brown);
+    box-shadow:var(--shadow);
+}
+
+.btn:hover{
+    transform:translateY(-5px) scale(1.02);
+}
+
+/* DOG AREA */
+
+.dog-stage{
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:500px;
+}
+
+.blob{
+    width:min(470px,90vw);
+    aspect-ratio:1;
+    background:
+        radial-gradient(circle at 30% 25%,#fff 0 7%,transparent 8%),
+        linear-gradient(145deg,#ffdcae,#ffad77);
+    border-radius:45% 55% 50% 50%;
+    transform:rotate(-4deg);
+    box-shadow:0 35px 70px rgba(255,140,66,.20);
+    position:absolute;
+}
+
+.astrid-photo{
+    position:relative;
+    z-index:2;
+    width:min(460px,90vw);
+    max-height:540px;
+    object-fit:contain;
+    filter:drop-shadow(0 25px 20px rgba(81,58,50,.18));
+    animation:dogBounce 3s ease-in-out infinite;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.astrid-photo:hover{
+    transform:scale(1.04) rotate(2deg);
+}
+
+@keyframes dogBounce{
+    0%,100%{
+        transform:translateY(0) rotate(-1deg);
+    }
+    50%{
+        transform:translateY(-14px) rotate(1deg);
+    }
+}
+
+.heart{
+    position:absolute;
+    z-index:3;
+    font-size:35px;
+    animation:heartFloat 3s ease-in-out infinite;
+}
+
+.h1{
+    top:5%;
+    right:10%;
+}
+
+.h2{
+    bottom:15%;
+    left:5%;
+    animation-delay:1s;
+}
+
+.h3{
+    top:32%;
+    right:0;
+    animation-delay:1.8s;
+}
+
+@keyframes heartFloat{
+    0%,100%{
+        transform:translateY(0) scale(1);
+        opacity:.8;
+    }
+    50%{
+        transform:translateY(-18px) scale(1.2);
+        opacity:1;
+    }
+}
+
+/* SECTIONS */
+
+section{
+    padding:110px 7%;
+}
+
+.section-head{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.kicker{
+    color:var(--orange);
+    font-size:14px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:2px;
+}
+
+.section-head h2{
+    font-size:clamp(38px,5vw,62px);
+    margin-top:8px;
+    letter-spacing:-2px;
+}
+
+/* ABOUT */
+
+.about-grid{
+    width:min(1150px,100%);
+    margin:auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+.card{
+    background:rgba(255,255,255,.82);
+    border:1px solid rgba(255,255,255,.95);
+    border-radius:30px;
+    padding:30px;
+    box-shadow:var(--shadow);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 28px 60px rgba(81,58,50,.15);
+}
+
+.profile-card{
+    background:linear-gradient(145deg,#fff,#fff3e8);
+}
+
+.profile-top{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    margin-bottom:25px;
+}
+
+.avatar{
+    width:85px;
+    height:85px;
+    border-radius:25px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:55px;
+    background:linear-gradient(145deg,#ffe1bc,#ffad77);
+}
+
+.profile-top h3{
+    font-size:30px;
+}
+
+.status{
+    display:inline-block;
+    margin-top:4px;
+    padding:5px 10px;
+    background:#dff8e7;
+    color:#31955a;
+    border-radius:12px;
+    font-size:12px;
+    font-weight:700;
+}
+
+.bio{
+    line-height:1.8;
+    color:#765f56;
+}
+
+.facts{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    margin-top:25px;
+}
+
+.fact{
+    background:#fff8f0;
+    padding:15px;
+    border-radius:18px;
+}
+
+.fact small{
+    color:#a48c82;
+    display:block;
+    margin-bottom:4px;
+}
+
+.fact strong{
+    font-size:17px;
+}
+
+/* FAVORITES */
+
+.favorites{
+    width:min(1150px,100%);
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.favorite{
+    min-height:190px;
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
+
+.favorite-icon{
+    font-size:55px;
+    margin-bottom:15px;
+    transition:.3s;
+}
+
+.favorite:hover .favorite-icon{
+    transform:scale(1.25) rotate(8deg);
+}
+
+.favorite h3{
+    font-size:21px;
+}
+
+.favorite p{
+    color:#907b72;
+    margin-top:6px;
+    font-size:14px;
+}
+
+/* HAPPY METER */
+
+.happy-box{
+    width:min(900px,100%);
+    margin:auto;
+    text-align:center;
+    padding:45px;
+    border-radius:35px;
+    background:linear-gradient(135deg,#fff,#fff0df);
+    box-shadow:var(--shadow);
+}
+
+.happy-face{
+    font-size:90px;
+    margin-bottom:10px;
+    animation:happyShake 2s infinite;
+}
+
+@keyframes happyShake{
+    0%,100%{
+        transform:rotate(0);
+    }
+    25%{
+        transform:rotate(-5deg);
+    }
+    75%{
+        transform:rotate(5deg);
+    }
+}
+
+.meter{
+    width:100%;
+    height:25px;
+    background:#f0e4d8;
+    border-radius:30px;
+    overflow:hidden;
+    margin:25px 0;
+}
+
+.meter-fill{
+    height:100%;
+    width:96%;
+    background:linear-gradient(
+        90deg,
+        var(--pink),
+        var(--orange),
+        var(--yellow)
+    );
+    border-radius:30px;
+    animation:meterGlow 2s infinite alternate;
+}
+
+@keyframes meterGlow{
+    from{
+        filter:brightness(1);
+    }
+    to{
+        filter:brightness(1.12);
+    }
+}
+
+.happy-text{
+    font-size:24px;
+    font-weight:700;
+}
+
+/* MEMORIES */
+
+.memory-grid{
+    width:min(1100px,100%);
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.memory{
+    height:280px;
+    border-radius:30px;
+    padding:25px;
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    box-shadow:var(--shadow);
+    transition:.3s;
+}
+
+.memory:hover{
+    transform:scale(1.025) rotate(-1deg);
+}
+
+.memory:nth-child(1){
+    background:linear-gradient(145deg,#ffdca7,#ffb36f);
+}
+
+.memory:nth-child(2){
+    background:linear-gradient(145deg,#c8f2ff,#8ed8ef);
+}
+
+.memory:nth-child(3){
+    background:linear-gradient(145deg,#ffd0e0,#ff91b5);
+}
+
+.memory-emoji{
+    position:absolute;
+    font-size:130px;
+    right:15px;
+    top:25px;
+    opacity:.8;
+}
+
+.memory h3{
+    font-size:25px;
+    position:relative;
+}
+
+.memory p{
+    position:relative;
+    margin-top:4px;
+}
+
+/* TREAT */
+
+.treat-section{
+    text-align:center;
+}
+
+.treat-btn{
+    margin-top:25px;
+    font-size:20px;
+    padding:18px 30px;
+    border:0;
+    border-radius:22px;
+    cursor:pointer;
+    font-family:inherit;
+    font-weight:800;
+    color:white;
+    background:linear-gradient(135deg,#ff8c42,#ff5d72);
+    box-shadow:0 15px 30px rgba(255,93,114,.25);
+    transition:.2s;
+}
+
+.treat-btn:hover{
+    transform:translateY(-5px) rotate(-2deg);
+}
+
+.treat-message{
+    margin-top:20px;
+    font-size:20px;
+    font-weight:700;
+    min-height:30px;
+}
+
+/* FOOTER */
+
+footer{
+    padding:50px 7%;
+    text-align:center;
+    background:#4d3730;
+    color:white;
+    position:relative;
+    overflow:hidden;
+}
+
+footer p{
+    opacity:.75;
+    margin-top:8px;
+}
+
+/* CONFETTI */
+
+.confetti{
+    position:fixed;
+    pointer-events:none;
+    z-index:9999;
+    font-size:25px;
+    animation:confettiFall 1.8s ease-out forwards;
+}
+
+@keyframes confettiFall{
+    0%{
+        transform:translateY(0) rotate(0) scale(1);
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(500px) rotate(720deg) scale(.4);
+        opacity:0;
+    }
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+    nav ul{
+        display:none;
+    }
+
+    .hero-inner{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+
+    .hero p{
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .buttons{
+        justify-content:center;
+    }
+
+    .about-grid{
+        grid-template-columns:1fr;
+    }
+
+    .favorites{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .memory-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:550px){
+
+    .hero h1{
+        font-size:62px;
+    }
+
+    .dog-stage{
+        min-height:380px;
+    }
+
+    .astrid-photo{
+        width:95%;
+    }
+
+    .favorites{
+        grid-template-columns:1fr;
+    }
+
+    section{
+        padding:80px 5%;
+    }
+
+    .happy-box{
+        padding:30px 20px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- BACKGROUND PAWS -->
+
+<div class="paw p1">🐾</div>
+<div class="paw p2">🐾</div>
+<div class="paw p3">🐾</div>
+<div class="paw p4">🐾</div>
+<div class="paw p5">🐾</div>
+
+
+<!-- NAVIGATION -->
+
+<nav>
+
+    <div class="logo">
+        <span>🐶</span>
+        Astrid
+    </div>
+
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#favorites">Favorites</a></li>
+        <li><a href="#memories">Memories</a></li>
+    </ul>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div class="hero-inner">
+
+        <div>
+
+            <div class="badge">
+                🐾 Certified Good Girl
+            </div>
+
+            <h1>
+                Meet<br>
+                <span>Astrid.</span> 🐶
+            </h1>
+
+            <p>
+                A tiny bundle of paws, zoomies, cuddles and
+                completely unnecessary amounts of happiness.
+                Welcome to Astrid's little corner of the internet.
+            </p>
+
+            <div class="buttons">
+
+                <a href="#about" class="btn btn-primary">
+                    Meet Astrid 🐾
+                </a>
+
+                <a href="#favorites" class="btn btn-secondary">
+                    Her Favorites ✨
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             YOUR PNG GOES HERE
+             
+             PUT astrid.png IN THE SAME FOLDER AS THIS HTML.
+        ================================================== -->
+
+        <div class="dog-stage">
+
+            <div class="blob"></div>
+
+            <img
+                src="astrid.png"
+                alt="Astrid the dog"
+                class="astrid-photo"
+                id="astridDog"
+            >
+
+            <div class="heart h1">💖</div>
+            <div class="heart h2">💗</div>
+            <div class="heart h3">💛</div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+    <div class="section-head">
+
+        <div class="kicker">
+            The legend herself
+        </div>
+
+        <h2>Who is Astrid?</h2>
+
+    </div>
+
+
+    <div class="about-grid">
+
+        <div class="card profile-card">
+
+            <div class="profile-top">
+
+                <div class="avatar">
+                    🐶
+                </div>
+
+                <div>
+
+                    <h3>Astrid</h3>
+
+                    <span class="status">
+                        ● VERY HAPPY
+                    </span>
+
+                </div>
+
+            </div>
+
+            <p class="bio">
+                Astrid is a lovable girl with a giant personality.
+                She believes every person is her best friend,
+                every box belongs to her and every sound in the
+                kitchen means that treats are coming.
+            </p>
+
+            <div class="facts">
+
+                <div class="fact">
+                    <small>Species</small>
+                    <strong>Dog 🐶</strong>
+                </div>
+
+                <div class="fact">
+                    <small>Gender</small>
+                    <strong>Girl 💕</strong>
+                </div>
+
+                <div class="fact">
+                    <small>Job</small>
+                    <strong>Being Cute</strong>
+                </div>
+
+                <div class="fact">
+                    <small>Energy</small>
+                    <strong>∞ / 10</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3 style="font-size:30px;margin-bottom:15px;">
+                Astrid's Daily Schedule 🐾
+            </h3>
+
+            <p style="line-height:2;color:#765f56;">
+
+                🌅 <b>Morning</b> — Wake everyone up<br>
+                🍖 <b>Breakfast</b> — Destroy the bowl<br>
+                🌳 <b>Afternoon</b> — Explore everything<br>
+                🧸 <b>Evening</b> — Maximum zoomies<br>
+                ❤️ <b>Night</b> — Cuddles + suspicious sleeping positions
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FAVORITES -->
+
+<section id="favorites">
+
+    <div class="section-head">
+
+        <div class="kicker">
+            Astrid approved
+        </div>
+
+        <h2>Things She LOVES</h2>
+
+    </div>
+
+
+    <div class="favorites">
+
+        <div class="card favorite">
+            <div class="favorite-icon">🦴</div>
+            <h3>Treats</h3>
+            <p>Obviously.</p>
+        </div>
+
+        <div class="card favorite">
+            <div class="favorite-icon">🎾</div>
+            <h3>Fetch</h3>
+            <p>Throw it again.</p>
+        </div>
+
+        <div class="card favorite">
+            <div class="favorite-icon">🌳</div>
+            <h3>Walkies</h3>
+            <p>Every single day.</p>
+        </div>
+
+        <div class="card favorite">
+            <div class="favorite-icon">🛋️</div>
+            <h3>Cuddles</h3>
+            <p>Never enough.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- HAPPY METER -->
+
+<section>
+
+    <div class="section-head">
+
+        <div class="kicker">
+            Very important scientific data
+        </div>
+
+        <h2>Astrid's Happiness</h2>
+
+    </div>
+
+
+    <div class="happy-box">
+
+        <div class="happy-face">
+            🐶
+        </div>
+
+        <div class="meter">
+            <div class="meter-fill"></div>
+        </div>
+
+        <div class="happy-text">
+            96% HAPPY
+        </div>
+
+        <p style="margin-top:10px;color:#8a7369;">
+            The other 4% is because someone stopped petting her.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- MEMORIES -->
+
+<section id="memories">
+
+    <div class="section-head">
+
+        <div class="kicker">
+            Little moments
+        </div>
+
+        <h2>Astrid's World</h2>
+
+    </div>
+
+
+    <div class="memory-grid">
+
+        <div class="memory">
+
+            <div class="memory-emoji">🌅</div>
+
+            <h3>Morning Adventures</h3>
+
+            <p>
+                The day begins with paws.
+            </p>
+
+        </div>
+
+
+        <div class="memory">
+
+            <div class="memory-emoji">🌳</div>
+
+            <h3>Outside Time</h3>
+
+            <p>
+                Every leaf must be investigated.
+            </p>
+
+        </div>
+
+
+        <div class="memory">
+
+            <div class="memory-emoji">💤</div>
+
+            <h3>Nap Time</h3>
+
+            <p>
+                Professional sleeper.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- TREAT -->
+
+<section class="treat-section">
+
+    <div class="section-head">
+
+        <div class="kicker">
+            Very important button
+        </div>
+
+        <h2>Give Astrid a Treat 🍖</h2>
+
+        <p style="margin-top:12px;color:#806c63;">
+            Press it. You know you want to.
+        </p>
+
+    </div>
+
+
+    <button class="treat-btn" onclick="giveTreat()">
+        🍖 GIVE TREAT
+    </button>
+
+    <div class="treat-message" id="treatMessage"></div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <h2>
+        Made with ❤️ for Astrid
+    </h2>
+
+    <p>
+        One very good girl. One very cool website. 🐾
+    </p>
+
+</footer>
+
+
+<script>
+
+/* TREAT BUTTON */
+
+function giveTreat(){
+
+    const message =
+        document.getElementById("treatMessage");
+
+    const messages = [
+        "ASTRID HAS RECEIVED THE TREAT. 🐶❤️",
+        "Astrid is doing zoomies. 💨🐕",
+        "Astrid says: MORE. 🍖",
+        "TAIL WAGGING DETECTED! 🐕💗",
+        "GOOD GIRL MODE: ACTIVATED. ✨",
+        "Astrid has forgiven you for everything. 🥹"
+    ];
+
+    message.textContent =
+        messages[Math.floor(Math.random()*messages.length)];
+
+
+    const emojis = [
+        "🦴",
+        "💖",
+        "🐾",
+        "✨",
+        "🍖",
+        "💛",
+        "🎾"
+    ];
+
+    for(let i=0;i<25;i++){
+
+        const confetti =
+            document.createElement("div");
+
+        confetti.className = "confetti";
+
+        confetti.textContent =
+            emojis[
+                Math.floor(Math.random()*emojis.length)
+            ];
+
+        confetti.style.left =
+            Math.random()*100 + "vw";
+
+        confetti.style.top = "45vh";
+
+        confetti.style.animationDelay =
+            Math.random()*.4 + "s";
+
+        document.body.appendChild(confetti);
+
+        setTimeout(()=>{
+            confetti.remove();
+        },2200);
+    }
+}
+
+
+/* FLOATING HEARTS */
+
+setInterval(()=>{
+
+    const heart =
+        document.createElement("div");
+
+    heart.textContent =
+        ["💗","💛","💖","🐾"][
+            Math.floor(Math.random()*4)
+        ];
+
+    heart.style.position = "fixed";
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.bottom = "-30px";
+    heart.style.fontSize =
+        Math.random()*15 + 15 + "px";
+
+    heart.style.opacity = ".45";
+    heart.style.pointerEvents = "none";
+    heart.style.zIndex = "0";
+
+    heart.animate(
+        [
+            {
+                transform:"translateY(0) rotate(0deg)",
+                opacity:.45
+            },
+            {
+                transform:
+                    "translateY(-110vh) rotate(360deg)",
+                opacity:0
+            }
+        ],
+        {
+            duration:7000 + Math.random()*4000,
+            easing:"linear"
+        }
+    );
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },11000);
+
+},1800);
+
+
+/* CLICK ASTRID */
+
+const astrid =
+    document.getElementById("astridDog");
+
+astrid.addEventListener("click",()=>{
+
+    astrid.animate(
+        [
+            {
+                transform:"scale(1) rotate(0)"
+            },
+            {
+                transform:"scale(1.12) rotate(-4deg)"
+            },
+            {
+                transform:"scale(1.05) rotate(4deg)"
+            },
+            {
+                transform:"scale(1) rotate(0)"
+            }
+        ],
+        {
+            duration:600,
+            easing:"ease-out"
+        }
+    );
+
+});
+
+
+/* SCROLL REVEAL */
+
+const cards =
+    document.querySelectorAll(
+        ".card,.memory,.happy-box"
+    );
+
+const observer =
+    new IntersectionObserver(
+        entries=>{
+
+            entries.forEach(entry=>{
+
+                if(entry.isIntersecting){
+
+                    entry.target.animate(
+                        [
+                            {
+                                opacity:0,
+                                transform:"translateY(30px)"
+                            },
+                            {
+                                opacity:1,
+                                transform:"translateY(0)"
+                            }
+                        ],
+                        {
+                            duration:650,
+                            easing:"cubic-bezier(.2,.8,.2,1)",
+                            fill:"forwards"
+                        }
+                    );
+
+                    observer.unobserve(entry.target);
+                }
+
+            });
+
+        },
+        {
+            threshold:.12
+        }
+    );
+
+cards.forEach(card=>{
+    observer.observe(card);
+});
+
+</script>
+
+</body>
+</html>
